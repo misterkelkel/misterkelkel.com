@@ -177,6 +177,7 @@ body {
 }
 
 .feedback-form textarea,
+.feedback-form input[type="text"],
 .feedback-form input[type="email"] {
   width: 100%;
   font-family: var(--font-body);
@@ -190,11 +191,13 @@ body {
 }
 
 .feedback-form textarea::placeholder,
+.feedback-form input[type="text"]::placeholder,
 .feedback-form input[type="email"]::placeholder {
   color: var(--sand);
 }
 
 .feedback-form textarea:focus,
+.feedback-form input[type="text"]:focus,
 .feedback-form input[type="email"]:focus {
   outline: none;
   border-color: var(--wood);
