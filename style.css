@@ -46,6 +46,25 @@
   outline-offset: 2px;
 }
 
+/* ===== Typewriter effect ===== */
+.typewriter.typing::after {
+  content: '|';
+  display: inline-block;
+  margin-left: 1px;
+  color: var(--wood);
+  animation: blink 0.7s step-end infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .typewriter.typing::after {
+    animation: none;
+  }
+}
+
 /* ===== Fade-in on load ===== */
 .fade-in {
   opacity: 0;

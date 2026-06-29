@@ -19,52 +19,45 @@
     <a href="https://www.linkedin.com/in/seow-xi-sun-kelvin-0950379" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="nav-icon">
       <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="3"/><line x1="7.5" y1="10" x2="7.5" y2="17"/><circle cx="7.5" cy="6.8" r="0.6" fill="currentColor"/><path d="M11.5 17v-4.2c0-1.6 1-2.3 2.1-2.3 1.2 0 2 .8 2 2.4V17"/></svg>
     </a>
-    <span class="version-tag">v1.1</span>
+    <span class="version-tag">v1.2</span>
   </nav>
 
   <main class="page">
 
     <header class="intro">
-      <h1 class="name fade-in" style="--delay: 0s">misterkelkel</h1>
-      <p class="tagline fade-in" style="--delay: 0.1s">a small corner of the internet</p>
+      <h1 class="name typewriter" data-text="misterkelkel" style="--delay: 0s"></h1>
+      <p class="tagline typewriter" data-text="a small corner of the internet" style="--delay: 0.7s"></p>
     </header>
 
-    <figure class="photo-frame fade-in" style="--delay: 0.2s">
+    <figure class="photo-frame fade-in" style="--delay: 1.4s">
       <img src="images/photo.jpg" alt="A photo of misterkelkel" class="photo">
     </figure>
 
     <section class="blurb">
-      <p class="fade-in" style="--delay: 0.3s">
-        Hi, I'm Kelvin. This page is just a quiet little space that's mine —
-        no agenda, no pitch, just a place to land if you're curious who's
-        behind the handle.
-      </p>
-      <p class="fade-in" style="--delay: 0.4s">
-        I'm still figuring out what goes here. For now, the best place to
-        actually keep up with me is on Instagram.
-      </p>
+      <p class="typewriter" data-text="Hi, I'm Kelvin. This page is just a quiet little space that's mine — no agenda, no pitch, just a place to land if you're curious who's behind the handle." style="--delay: 1.6s"></p>
+      <p class="typewriter" data-text="I'm still figuring out what goes here. For now, the best place to actually keep up with me is on Instagram." style="--delay: 4.2s"></p>
     </section>
 
     <section class="signoff">
-      <a href="https://www.instagram.com/x.s.seow" class="ig-link fade-in" style="--delay: 0.5s" target="_blank" rel="noopener noreferrer">
+      <a href="https://www.instagram.com/x.s.seow" class="ig-link fade-in" style="--delay: 6s" target="_blank" rel="noopener noreferrer">
         find more on instagram <span class="arrow">→</span>
       </a>
-      <a href="https://www.linkedin.com/in/seow-xi-sun-kelvin-0950379" class="ig-link fade-in" style="--delay: 0.58s" target="_blank" rel="noopener noreferrer">
+      <a href="https://www.linkedin.com/in/seow-xi-sun-kelvin-0950379" class="ig-link fade-in" style="--delay: 6.1s" target="_blank" rel="noopener noreferrer">
         connect on linkedin <span class="arrow">→</span>
       </a>
     </section>
 
     <section class="feedback">
-      <p class="feedback-label fade-in" style="--delay: 0.66s">got something to say? leave it here —</p>
+      <p class="feedback-label fade-in" style="--delay: 6.2s">got something to say? leave it here —</p>
       <form id="feedback-form" class="feedback-form">
         <input type="hidden" name="access_key" value="b0d1582e-dae1-427d-afbb-69a0c18c1b1a">
         <input type="hidden" name="subject" value="New feedback from misterkelkel.com">
-        <input type="text" name="name" placeholder="your name" class="fade-in" style="--delay: 0.74s">
-        <textarea name="message" rows="3" placeholder="say something..." required class="fade-in" style="--delay: 0.82s"></textarea>
-        <input type="email" name="email" placeholder="your email (so I know who you are! optional)" class="fade-in" style="--delay: 0.9s">
-        <button type="submit" class="fade-in" style="--delay: 0.98s">send</button>
+        <input type="text" name="name" placeholder="your name" class="fade-in" style="--delay: 6.3s">
+        <textarea name="message" rows="3" placeholder="say something..." required class="fade-in" style="--delay: 6.4s"></textarea>
+        <input type="email" name="email" placeholder="your email (so I know who you are! optional)" class="fade-in" style="--delay: 6.5s">
+        <button type="submit" class="fade-in" style="--delay: 6.6s">send</button>
       </form>
-      <p class="feedback-note fade-in" style="--delay: 1.06s" id="feedback-status">goes straight to my inbox, no account needed.</p>
+      <p class="feedback-note fade-in" style="--delay: 6.7s" id="feedback-status">goes straight to my inbox, no account needed.</p>
     </section>
 
   </main>
@@ -72,6 +65,28 @@
   <footer class="credit">
     <span>built with Claude</span>
   </footer>
+
+  <script>
+    // Typewriter effect: reads data-text, waits for --delay, types char by char
+    document.querySelectorAll('.typewriter').forEach((el) => {
+      const text = el.getAttribute('data-text') || '';
+      const delay = parseFloat(el.style.getPropertyValue('--delay')) * 1000 || 0;
+      const speed = 28; // ms per character
+
+      setTimeout(() => {
+        el.classList.add('typing');
+        let i = 0;
+        const interval = setInterval(() => {
+          el.textContent = text.slice(0, i + 1);
+          i++;
+          if (i >= text.length) {
+            clearInterval(interval);
+            el.classList.remove('typing');
+          }
+        }, speed);
+      }, delay);
+    });
+  </script>
 
   <script>
     const form = document.getElementById('feedback-form');
